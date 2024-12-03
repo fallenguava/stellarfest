@@ -132,6 +132,3 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use, mod
 For questions, feedback, or collaboration opportunities, feel free to reach out:
 
 - GitHub: [fallenguava](https://github.com/fallenguava)
-- Email: winanda.hartadi@binus.ac.id
-- Email: eugenia.hibau@binus.ac.id
-- Email: francesco.christian@binus.ac.id
