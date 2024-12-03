@@ -79,36 +79,6 @@ Follow these steps to set up StellarFest on your local machine:
 
   - **`Main.java`**: The entry point for the application, initializing the user interface and managing navigation.  
 
-- **`resources/`**  
-  - **`styles/`**  
-    - **`app.css`**: Contains CSS styling for the application’s user interface.  
-  - **`images/`**  
-    - **`logo.png`**: An image used for branding or visual elements.  
-
-- **`database/`**  
-  - **`schema.sql`**: SQL script to create the necessary tables (`users`, `events`, `invitations`) in the database.  
-  - **`seed.sql`**: SQL script to populate the database with initial data for testing purposes.  
-
-- **`documentation/`**  
-  - **`ExternalDocumentation.docx`**: Documentation aimed at external stakeholders, detailing project goals and functionality.  
-  - **`InternalDocumentation.docx`**: Technical documentation for developers, outlining system architecture and code structure.  
-
-- **`tests/`**  
-  - **`controller/`**  
-    - Unit tests for all controllers (`AdminControllerTest.java`, `EventControllerTest.java`, etc.).  
-  - **`model/`**  
-    - Unit tests for models (`EventTest.java`, `InvitationTest.java`, `UserTest.java`).  
-  - **`utility/`**  
-    - Tests for session management (`SessionManagerTest.java`).  
-
-- **`build/`**  
-  - Directory for build artifacts, logs, and generated files.  
-
-- **Project Root Files**  
-  - **`README.md`**: Provides an overview of the project, installation instructions, and usage details.  
-  - **`.gitignore`**: Lists files and directories to be excluded from version control.  
-  - **`pom.xml / build.gradle`**: Configuration files for build automation tools like Maven or Gradle.  
-
 ---
 
 ## Requirements
