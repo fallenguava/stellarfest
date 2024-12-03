@@ -33,6 +33,9 @@ Follow these steps to set up StellarFest on your local machine:
 4. **Run the Project**:
    - Ensure you have a Java Runtime Environment (JRE) installed.
    - Right-click on the `Main.java` file and select `Run As > Java Application`.
+5. **MySQL**
+   - Use the Queries I have provide in the repository.
+   - Run the queries in your phpMySQL web admin.
 
 ---
 
