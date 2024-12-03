@@ -7,7 +7,15 @@ public class Invitation {
     private String status;
     private String eventName;
     private String eventDate;
-    
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+   
 	public String getEventDate() {
 		return eventDate;
 	}

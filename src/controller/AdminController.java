@@ -59,25 +59,61 @@ public class AdminController {
     // Delete user by ID
     public boolean deleteUser(int userId) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
-        String query = "DELETE FROM users WHERE id = ?";
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setInt(1, userId);
 
-        int rowsAffected = stmt.executeUpdate();
-        conn.close();
-        return rowsAffected > 0;
+        try {
+            conn.setAutoCommit(false);
+
+            // Delete related rows from invitations
+            String deleteInvitationsQuery = "DELETE FROM invitations WHERE user_id = ?";
+            PreparedStatement deleteInvitationsStmt = conn.prepareStatement(deleteInvitationsQuery);
+            deleteInvitationsStmt.setInt(1, userId);
+            deleteInvitationsStmt.executeUpdate();
+
+            // Delete user
+            String deleteUserQuery = "DELETE FROM users WHERE id = ?";
+            PreparedStatement deleteUserStmt = conn.prepareStatement(deleteUserQuery);
+            deleteUserStmt.setInt(1, userId);
+            int rowsAffected = deleteUserStmt.executeUpdate();
+
+            conn.commit();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            conn.rollback();
+            throw e;
+        } finally {
+            conn.setAutoCommit(true);
+            conn.close();
+        }
     }
 
     // Delete event by ID
     public boolean deleteEvent(int eventId) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
-        String query = "DELETE FROM events WHERE id = ?";
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setInt(1, eventId);
 
-        int rowsAffected = stmt.executeUpdate();
-        conn.close();
-        return rowsAffected > 0;
+        try {
+            conn.setAutoCommit(false);
+
+            // Delete related rows from invitations
+            String deleteInvitationsQuery = "DELETE FROM invitations WHERE event_id = ?";
+            PreparedStatement deleteInvitationsStmt = conn.prepareStatement(deleteInvitationsQuery);
+            deleteInvitationsStmt.setInt(1, eventId);
+            deleteInvitationsStmt.executeUpdate();
+
+            // Delete event
+            String deleteEventQuery = "DELETE FROM events WHERE id = ?";
+            PreparedStatement deleteEventStmt = conn.prepareStatement(deleteEventQuery);
+            deleteEventStmt.setInt(1, eventId);
+            int rowsAffected = deleteEventStmt.executeUpdate();
+
+            conn.commit();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            conn.rollback();
+            throw e;
+        } finally {
+            conn.setAutoCommit(true);
+            conn.close();
+        }
     }
 
     public ArrayList<Event> viewAllEvents() throws SQLException {
@@ -118,4 +154,28 @@ public class AdminController {
         conn.close();
         return users;
     }
+    
+    public Event getEventDetails(int eventId) throws SQLException {
+        Connection conn = DatabaseConnection.getConnection();
+        String query = "SELECT * FROM events WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setInt(1, eventId);
+
+        ResultSet rs = stmt.executeQuery();
+        Event event = null;
+
+        if (rs.next()) {
+            event = new Event();
+            event.setId(rs.getInt("id"));
+            event.setName(rs.getString("name"));
+            event.setDate(rs.getString("date"));
+            event.setLocation(rs.getString("location"));
+            event.setDescription(rs.getString("description"));
+            event.setOrganizerId(rs.getInt("organizer_id"));
+        }
+
+        conn.close();
+        return event;
+    }
+
 }

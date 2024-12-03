@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.User;
-import utility.*;
+import utility.SessionManager;
 
 public class LoginView extends Application {
 
@@ -21,6 +21,7 @@ public class LoginView extends Application {
         Label lblPassword = new Label("Password:");
         PasswordField txtPassword = new PasswordField();
         Button btnLogin = new Button("Login");
+        Button btnRegister = new Button("Register"); // Added Register button
 
         btnLogin.setOnAction(e -> {
             try {
@@ -54,7 +55,16 @@ public class LoginView extends Application {
             }
         });
 
-        VBox vbox = new VBox(10, lblEmail, txtEmail, lblPassword, txtPassword, btnLogin);
+        btnRegister.setOnAction(e -> {
+            try {
+                new RegistrationView().start(new Stage()); // Open RegistrationView
+                primaryStage.close(); // Close LoginView
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        VBox vbox = new VBox(10, lblEmail, txtEmail, lblPassword, txtPassword, btnLogin, btnRegister);
         vbox.setAlignment(Pos.CENTER);
         Scene scene = new Scene(vbox, 400, 300);
         primaryStage.setTitle("Login");

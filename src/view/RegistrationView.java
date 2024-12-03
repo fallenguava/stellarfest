@@ -22,7 +22,7 @@ public class RegistrationView extends Application {
         PasswordField txtPassword = new PasswordField();
         Label lblRole = new Label("Role:");
         ComboBox<String> cbRole = new ComboBox<>();
-        cbRole.getItems().addAll("Event Organizer", "Vendor", "Guest");
+        cbRole.getItems().addAll("Admin", "Event Organizer", "Vendor", "Guest"); // Added Admin role
 
         Button btnRegister = new Button("Register");
 
