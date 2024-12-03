@@ -230,6 +230,7 @@ public class AdminView extends Application {
         vbox.setStyle("-fx-padding: 20px;");
         Scene scene = new Scene(vbox, 600, 400);
 
+        
         eventStage.setTitle("All Events");
         eventStage.setScene(scene);
         eventStage.show();
