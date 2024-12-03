@@ -96,7 +96,6 @@ public class InvitationController {
         return rows > 0;
     }
     
- // In InvitationController.java
     public boolean addGuestsToEvent(List<User> guests, int eventId) throws SQLException {
         if (guests == null || guests.isEmpty()) {
             throw new IllegalArgumentException("Guest list cannot be empty.");
@@ -148,7 +147,6 @@ public class InvitationController {
 
             int[] rows = stmt.executeBatch();
 
-            // Ensure all inserts were successful
             for (int row : rows) {
                 if (row <= 0) return false;
             }

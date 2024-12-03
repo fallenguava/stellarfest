@@ -21,7 +21,7 @@ public class LoginView extends Application {
         Label lblPassword = new Label("Password:");
         PasswordField txtPassword = new PasswordField();
         Button btnLogin = new Button("Login");
-        Button btnRegister = new Button("Register"); // Added Register button
+        Button btnRegister = new Button("Register"); 
 
         btnLogin.setOnAction(e -> {
             try {
@@ -57,8 +57,8 @@ public class LoginView extends Application {
 
         btnRegister.setOnAction(e -> {
             try {
-                new RegistrationView().start(new Stage()); // Open RegistrationView
-                primaryStage.close(); // Close LoginView
+                new RegistrationView().start(new Stage()); 
+                primaryStage.close(); 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

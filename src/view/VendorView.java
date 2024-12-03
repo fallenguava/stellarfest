@@ -57,18 +57,14 @@ public class VendorView extends Application {
 
         Label lblTitle = new Label("Edit Profile");
 
-        // Current user data
         User currentUser = SessionManager.getCurrentUser();
 
-        // Email field
         Label lblEmail = new Label("Email:");
         TextField txtEmail = new TextField(currentUser.getEmail());
 
-        // Username field
         Label lblUsername = new Label("Username:");
         TextField txtUsername = new TextField(currentUser.getUsername());
 
-        // Password fields
         Label lblOldPassword = new Label("Old Password:");
         PasswordField txtOldPassword = new PasswordField();
 

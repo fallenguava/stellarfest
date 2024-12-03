@@ -49,7 +49,6 @@ public class AdminView extends Application {
     private void editProfile() {
         Stage editProfileStage = new Stage();
 
-        // Labels and input fields
         Label lblEmail = new Label("New Email:");
         TextField txtEmail = new TextField();
         Label lblUsername = new Label("New Username:");
@@ -101,13 +100,11 @@ public class AdminView extends Application {
     }
 
 
-    // Display Users in a TableView
     private void showUsers(Stage primaryStage) {
         Stage userStage = new Stage();
         TableView<User> table = new TableView<>();
         table.setEditable(false);
 
-        // Define columns
         TableColumn<User, Integer> colId = new TableColumn<>("ID");
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -142,10 +139,8 @@ public class AdminView extends Application {
             }
         });
 
-        // Add columns to the table
         table.getColumns().addAll(colId, colUsername, colEmail, colRole, colAction);
 
-        // Populate table with data
         try {
             List<User> users = adminController.getAllUsers();
             ObservableList<User> userData = FXCollections.observableArrayList(users);
@@ -164,13 +159,11 @@ public class AdminView extends Application {
         userStage.show();
     }
 
-    // Display Events in a TableView
     private void showEvents(Stage primaryStage) {
         Stage eventStage = new Stage();
         TableView<Event> table = new TableView<>();
         table.setEditable(false);
 
-        // Define columns
         TableColumn<Event, Integer> colId = new TableColumn<>("ID");
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -183,7 +176,6 @@ public class AdminView extends Application {
         TableColumn<Event, String> colLocation = new TableColumn<>("Location");
         colLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
 
-        // Actions Column
         TableColumn<Event, Void> colAction = new TableColumn<>("Actions");
         colAction.setCellFactory(param -> new TableCell<>() {
             private final Button btnDelete = new Button("Delete");
@@ -213,10 +205,8 @@ public class AdminView extends Application {
             }
         });
 
-        // Add columns to the table
         table.getColumns().addAll(colId, colName, colDate, colLocation, colAction);
 
-        // Populate table with data
         try {
             List<Event> events = adminController.getAllEvents();
             ObservableList<Event> eventData = FXCollections.observableArrayList(events);
@@ -269,7 +259,6 @@ public class AdminView extends Application {
     }
 
 
-    // Delete User
     private void deleteUser(User user, Stage userStage) {
         try {
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this user?");
@@ -293,7 +282,6 @@ public class AdminView extends Application {
         }
     }
 
-    // Delete Event
     private void deleteEvent(Event event, Stage eventStage) {
         try {
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this event?");

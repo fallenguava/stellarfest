@@ -44,7 +44,6 @@ public class UserController {
     public boolean updateUserProfile(int userId, String email, String username, String oldPassword, String newPassword) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
 
-        // Validate current password
         String validateQuery = "SELECT * FROM users WHERE id = ? AND password = ?";
         PreparedStatement validateStmt = conn.prepareStatement(validateQuery);
         validateStmt.setInt(1, userId);
@@ -52,10 +51,9 @@ public class UserController {
         ResultSet rs = validateStmt.executeQuery();
         if (!rs.next()) {
             conn.close();
-            return false; // Old password does not match
+            return false; 
         }
 
-        // Check for unique email and username
         if (!email.equals(rs.getString("email"))) {
             String emailQuery = "SELECT * FROM users WHERE email = ?";
             PreparedStatement emailStmt = conn.prepareStatement(emailQuery);
@@ -63,7 +61,7 @@ public class UserController {
             ResultSet emailRs = emailStmt.executeQuery();
             if (emailRs.next()) {
                 conn.close();
-                return false; // Email already exists
+                return false; 
             }
         }
 
@@ -74,11 +72,10 @@ public class UserController {
             ResultSet usernameRs = usernameStmt.executeQuery();
             if (usernameRs.next()) {
                 conn.close();
-                return false; // Username already exists
+                return false;
             }
         }
 
-        // Update profile
         String updateQuery = "UPDATE users SET email = ?, username = ?, password = ? WHERE id = ?";
         PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
         updateStmt.setString(1, email);

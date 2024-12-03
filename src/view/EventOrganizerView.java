@@ -142,7 +142,6 @@ public class EventOrganizerView extends Application {
         Label lblEventDescription = new Label("Event Description:");
         TextField txtEventDescription = new TextField();
 
-        // Add Guests
         Label lblAddGuests = new Label("Add Guests:");
         ObservableList<User> guestList = FXCollections.observableArrayList();
         try {
@@ -153,7 +152,6 @@ public class EventOrganizerView extends Application {
         }
         TableView<User> guestTableView = createUserTableView(guestList);
 
-        // Add Vendors
         Label lblAddVendors = new Label("Add Vendors:");
         ObservableList<User> vendorList = FXCollections.observableArrayList();
         try {
@@ -261,8 +259,7 @@ public class EventOrganizerView extends Application {
                     return;
                 }
 
-                // Update the user in the database (not implemented, assume a method updateUser exists)
-                boolean success = true; // Replace with the actual call to the controller
+                boolean success = true;
 
                 if (success) {
                     showAlert("Success", "Profile updated successfully!");

@@ -33,7 +33,6 @@ public class AdminController {
         return users;
     }
 
-    // Fetch all events
     public List<Event> getAllEvents() throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
         String query = "SELECT * FROM events";
@@ -56,20 +55,17 @@ public class AdminController {
         return events;
     }
 
-    // Delete user by ID
     public boolean deleteUser(int userId) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
 
         try {
             conn.setAutoCommit(false);
 
-            // Delete related rows from invitations
             String deleteInvitationsQuery = "DELETE FROM invitations WHERE user_id = ?";
             PreparedStatement deleteInvitationsStmt = conn.prepareStatement(deleteInvitationsQuery);
             deleteInvitationsStmt.setInt(1, userId);
             deleteInvitationsStmt.executeUpdate();
 
-            // Delete user
             String deleteUserQuery = "DELETE FROM users WHERE id = ?";
             PreparedStatement deleteUserStmt = conn.prepareStatement(deleteUserQuery);
             deleteUserStmt.setInt(1, userId);
@@ -86,20 +82,17 @@ public class AdminController {
         }
     }
 
-    // Delete event by ID
     public boolean deleteEvent(int eventId) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
 
         try {
             conn.setAutoCommit(false);
 
-            // Delete related rows from invitations
             String deleteInvitationsQuery = "DELETE FROM invitations WHERE event_id = ?";
             PreparedStatement deleteInvitationsStmt = conn.prepareStatement(deleteInvitationsQuery);
             deleteInvitationsStmt.setInt(1, eventId);
             deleteInvitationsStmt.executeUpdate();
 
-            // Delete event
             String deleteEventQuery = "DELETE FROM events WHERE id = ?";
             PreparedStatement deleteEventStmt = conn.prepareStatement(deleteEventQuery);
             deleteEventStmt.setInt(1, eventId);
