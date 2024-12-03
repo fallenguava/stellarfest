@@ -4,16 +4,6 @@ StellarFest is a Java-based application designed to bring the magic of celestial
 
 ---
 
-## Features
-
-- **Interactive Celestial Event Tracker**: Stay updated with upcoming celestial events like meteor showers, eclipses, and planet alignments.
-- **Visualizations**: View stunning graphical representations of stars, planets, and constellations.
-- **Educational Content**: Learn about the science behind celestial events, with detailed explanations and historical context.
-- **Personalized Alerts**: Set reminders for events you don’t want to miss.
-- **Cross-Platform Compatibility**: A Java-based solution that works on any system with a Java runtime environment.
-
----
-
 ## Installation
 
 Follow these steps to set up StellarFest on your local machine:
