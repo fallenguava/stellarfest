@@ -47,59 +47,64 @@ Follow these steps to set up StellarFest on your local machine:
 
 ## Project Structure
 
-StellarFest/
-├── src/
-│   ├── controller/
-│   │   ├── AdminController.java
-│   │   ├── EventController.java
-│   │   ├── InvitationController.java
-│   │   ├── UserController.java
-│   ├── database/
-│   │   ├── DatabaseConnection.java
-│   ├── model/
-│   │   ├── Event.java
-│   │   ├── Invitation.java
-│   │   ├── User.java
-│   ├── utility/
-│   │   ├── SessionManager.java
-│   ├── view/
-│   │   ├── AdminView.java
-│   │   ├── EventOrganizerView.java
-│   │   ├── GuestView.java
-│   │   ├── LoginView.java
-│   │   ├── VendorView.java
-│   ├── Main.java
-├── resources/
-│   ├── styles/
-│   │   ├── app.css
-│   ├── images/
-│   │   ├── logo.png
-├── database/
-│   ├── schema.sql
-│   ├── seed.sql
-├── documentation/
-│   ├── ExternalDocumentation.docx
-│   ├── InternalDocumentation.docx
-├── tests/
-│   ├── controller/
-│   │   ├── AdminControllerTest.java
-│   │   ├── EventControllerTest.java
-│   │   ├── InvitationControllerTest.java
-│   │   ├── UserControllerTest.java
-│   ├── model/
-│   │   ├── EventTest.java
-│   │   ├── InvitationTest.java
-│   │   ├── UserTest.java
-│   ├── utility/
-│   │   ├── SessionManagerTest.java
-├── build/
-│   ├── classes/
-│   ├── libs/
-│   ├── logs/
-├── README.md
-├── .gitignore
-├── pom.xml (if using Maven)
-├── build.gradle (if using Gradle)
+### **StellarFest Project Structure**
+
+- **`src/`**  
+  - **`controller/`**  
+    - **`AdminController.java`**: Handles admin-specific operations such as managing users, events, and profile updates.  
+    - **`EventController.java`**: Manages event-related operations like creating, updating, and fetching event details.  
+    - **`InvitationController.java`**: Responsible for managing invitations, including sending, updating statuses, and retrieving invitation details.  
+    - **`UserController.java`**: Handles user-related operations such as login, registration, and profile management.  
+
+  - **`database/`**  
+    - **`DatabaseConnection.java`**: Provides methods for establishing and managing the database connection.  
+
+  - **`model/`**  
+    - **`Event.java`**: Represents the structure and properties of an event entity in the system.  
+    - **`Invitation.java`**: Defines the structure and properties of an invitation entity, linking events and users.  
+    - **`User.java`**: Represents the structure and properties of a user entity.  
+
+  - **`utility/`**  
+    - **`SessionManager.java`**: Manages user sessions for tracking the currently logged-in user.  
+
+  - **`view/`**  
+    - **`AdminView.java`**: Provides the admin dashboard interface with features for managing users, events, and profile updates.  
+    - **`EventOrganizerView.java`**: Offers an event organizer dashboard for managing events, inviting guests/vendors, and editing profiles.  
+    - **`GuestView.java`**: Enables guests to view and accept invitations, as well as update their profiles.  
+    - **`LoginView.java`**: Displays the login interface for users with different roles (admin, organizer, guest, vendor).  
+    - **`VendorView.java`**: Provides a dashboard for vendors to manage event invitations and profile details.  
+
+  - **`Main.java`**: The entry point for the application, initializing the user interface and managing navigation.  
+
+- **`resources/`**  
+  - **`styles/`**  
+    - **`app.css`**: Contains CSS styling for the application’s user interface.  
+  - **`images/`**  
+    - **`logo.png`**: An image used for branding or visual elements.  
+
+- **`database/`**  
+  - **`schema.sql`**: SQL script to create the necessary tables (`users`, `events`, `invitations`) in the database.  
+  - **`seed.sql`**: SQL script to populate the database with initial data for testing purposes.  
+
+- **`documentation/`**  
+  - **`ExternalDocumentation.docx`**: Documentation aimed at external stakeholders, detailing project goals and functionality.  
+  - **`InternalDocumentation.docx`**: Technical documentation for developers, outlining system architecture and code structure.  
+
+- **`tests/`**  
+  - **`controller/`**  
+    - Unit tests for all controllers (`AdminControllerTest.java`, `EventControllerTest.java`, etc.).  
+  - **`model/`**  
+    - Unit tests for models (`EventTest.java`, `InvitationTest.java`, `UserTest.java`).  
+  - **`utility/`**  
+    - Tests for session management (`SessionManagerTest.java`).  
+
+- **`build/`**  
+  - Directory for build artifacts, logs, and generated files.  
+
+- **Project Root Files**  
+  - **`README.md`**: Provides an overview of the project, installation instructions, and usage details.  
+  - **`.gitignore`**: Lists files and directories to be excluded from version control.  
+  - **`pom.xml / build.gradle`**: Configuration files for build automation tools like Maven or Gradle.  
 
 ---
 
